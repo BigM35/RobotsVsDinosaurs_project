@@ -1,7 +1,4 @@
 
-
-
-
 from weapon import Weapon
 
 

@@ -1,7 +1,4 @@
 
-
-
-
 from unicodedata import name
 
 
