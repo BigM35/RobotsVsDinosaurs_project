@@ -1,16 +1,19 @@
+from importlib.machinery import PathFinder
 from fleet import Fleet
 from herd import Herd
 from weapon import Weapon
 from robot import Robot
-
+from random import Random
 class BattleField:
     def __init__(self) -> None:
-        self.fleet = Fleet
-        self.herd = Herd
+        self.fleet = Fleet()
+        self.herd = Herd()
 
     def run_game(self): #void
-        pass
-    
+        self.fleet = Fleet.create_fleet(pathfinder)
+        self.fleet = Fleet.create_fleet(r2d2)
+        self.fleet = Fleet.create_fleet(ash)
+        self.herd = Herd.create_herd
     def display_welcome(self): #void
         pass            
     
@@ -25,9 +28,8 @@ class BattleField:
 
     def robo_turn(self): #void
         #Get weapon
-        Robot.get_weapon()
         #Choose robot
-        self.fleet.choose_robo_attacker()
+        rob_atk = self.fleet.choose_robo_attacker()
         #choose opponet & attack
         
     def show_dino_opponent_option(self): #void
@@ -43,17 +45,14 @@ class BattleField:
 pathfinder = Robot("Pathfinder")
 r2d2 = Robot("R2D2")
 ash = Robot("Ash")
-
+    
 #Robo weapons
-excalibur = Weapon("Excalibur", 75)
-force = Weapon("Force Cascade", 50)
-meteor = Weapon("Meteor Cannon", 100)
 
 #Robot Fleet
-robot_fleet = Fleet()
+
 
 
 #arm robot
 
 #choose robot to attack
-robot_fleet
+
