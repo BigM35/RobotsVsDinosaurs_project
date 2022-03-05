@@ -1,4 +1,6 @@
+from csv import Dialect
 from importlib.machinery import PathFinder
+from dinosaur import Dinosaur
 from fleet import Fleet
 from herd import Herd
 from weapon import Weapon
@@ -10,16 +12,18 @@ class BattleField:
         self.herd = Herd()
 
     def run_game(self): #void
-        self.fleet = Fleet.create_fleet(pathfinder)
-        self.fleet = Fleet.create_fleet(r2d2)
-        self.fleet = Fleet.create_fleet(ash)
-        self.herd = Herd.create_herd
+        self.fleet.create_fleet(pathfinder)
+        self.fleet.create_fleet(r2d2)
+        self.fleet.create_fleet(ash)
+        self.herd.create_herd(irritator)
+        self.herd.create_herd(yoshi_saurus)
+        self.herd.create_herd(rexicutioner)
+
     def display_welcome(self): #void
         pass            
     
     def battle(self): #void
         pass
-
     def dino_turn(self): #void
             pass
         #Choose Dino (attacker)
@@ -29,9 +33,15 @@ class BattleField:
     def robo_turn(self): #void
         #Get weapon
         #Choose robot
-        rob_atk = self.fleet.choose_robo_attacker()
+        self.fleet.choose_robo_attacker()
         #choose opponet & attack
-        
+        dino_target = self.herd.dinosaur_to_be_attacked()
+        for robot in self.fleet.robots:
+            if self.fleet.choose_robo_attacker == robot:
+                self.fleet.robots.robot.attack(dino_target)
+                            
+            else:
+                continue
     def show_dino_opponent_option(self): #void
         pass
 
@@ -40,6 +50,8 @@ class BattleField:
 
     def display_winners(self):  #void
         pass
+
+    #instain
 
 #Create Robots
 pathfinder = Robot("Pathfinder")
@@ -55,4 +67,11 @@ ash = Robot("Ash")
 #arm robot
 
 #choose robot to attack
+
+
+
+#Dinosaurs names
+irritator = Dinosaur("Irritator", 75)
+rexicutioner = Dinosaur("Rexicutioner", 100)
+yoshi_saurus = Dinosaur("Yoshi-saurus", 50)
 
