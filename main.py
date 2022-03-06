@@ -8,4 +8,4 @@ from battle_field import BattleField
 
 start = BattleField()
 start.run_game()
-start.dino_turn()
+
