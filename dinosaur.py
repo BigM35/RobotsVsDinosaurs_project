@@ -34,9 +34,9 @@ class Dinosaur:
     
     def choose_attack(self):
         for ability in self.ability:
-            user_choice = int(input(f"Choose your ability!\n1. {self.ability[0]}\n2. {self.ability[1]}\n3. {self.ability[2]} \n"))
+            user_choice = int(input(f"------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nChoose your ability!\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n1. {self.ability[0]}\n2. {self.ability[1]}\n3. {self.ability[2]}\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"))
             while user_choice < 1 or user_choice > 3:
-                user_choice = int(input(f"***INVALID RESPONSE***\nChoose your ability!\n1. {self.ability[0]}\n2. {self.ability[1]}\n3. {self.ability[2]} \n"))
+                user_choice = int(input(f"------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n***INVALID RESPONSE***\nChoose your ability!\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n1. {self.ability[0]}\n2. {self.ability[1]}\n3. {self.ability[2]}\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"))
             if user_choice == 1:
                 return self.ability[0]
             elif user_choice == 2:    
@@ -45,7 +45,7 @@ class Dinosaur:
                 return self.ability[2]
 
     def choose_random_attack(self):
-        for ability in self.ability:
+        for skill in self.ability:
             choice = random.choice([1, 2, 3])
             if choice == 1:
                 return self.ability[0]
