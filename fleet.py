@@ -3,7 +3,6 @@ from weapon import Weapon
 from herd import Herd
 
 
-
 class Fleet:
     def __init__(self) -> None:
         self.robots = []
@@ -15,12 +14,13 @@ class Fleet:
         for robot in self.robots:
             user_choice = int(input(f"Choose your fighter!\n1. {self.robots[0].name}\n    Health:{self.robots[0].health}\n2. {self.robots[1].name}\n    Health:{self.robots[1].health}\n3. {self.robots[2].name}\n    Health:{self.robots[2].health}\n"))
             while user_choice  < 1 or user_choice > 3:
-                user_choice = int(input(f"***INVALID RESPONSE*** \nChoose your Fighter!\n 1. {self.robots[0].name}\n Health:   {self.robots[0].health}\n\n2. {self.robots[1].name}\n Health:   {self.robots[1].health}\n3. {self.robots[2].name}\n Health:   {self.robots[2].health}\n"))
+                user_choice = int(input(f"***INVALID RESPONSE*** \nChoose your Fighter!\n 1. {self.robots[0].name}\n Health:   {self.robots[0].health}\n2. {self.robots[1].name}\n Health:   {self.robots[1].health}\n3. {self.robots[2].name}\n Health:   {self.robots[2].health}\n"))
                 if user_choice > 1 or user_choice < 3:
                     continue
             if user_choice == 1:
                 print(f"{self.robots[0].name} is preparing to attack")
                 self.robots[0].weapon = self.robots[0].get_weapon()
+
                 return self.robots[0]
             elif user_choice == 2:
                 print(f"{self.robots[1].name} is preparing to attack")
@@ -41,7 +41,7 @@ class Fleet:
         for robot in self.robots:
             user_choice = int(input(f"Choose your choose your target!!!\n1. {self.robots[0].name}\n    Health:{self.robots[0].health}\n2. {self.robots[1].name}\n    Health:{self.robots[1].health}\n3. {self.robots[2].name}\n    Health:{self.robots[2].health}\n"))
             while user_choice  < 1 or user_choice > 3:
-                user_choice = int(input("***INVALID RESPONSE*** \nChoose your choose your target!!!\n 1. {self.robots[0].name}\n Health:   {self.robots[0].health}\n\n2. {self.robots[1].name}\n Health:   {self.robots[1].health}\n3. {self.robots[2].name}\n Health:   {self.robots[2].health}\n"))
+                user_choice = int(input(f"***INVALID RESPONSE*** \nChoose your choose your target!!!\n 1. {self.robots[0].name}\n Health:   {self.robots[0].health}\n2. {self.robots[1].name}\n Health:   {self.robots[1].health}\n3. {self.robots[2].name}\n Health:   {self.robots[2].health}\n"))
                 if user_choice > 1 or user_choice < 3:
                     continue
             if user_choice == 1:

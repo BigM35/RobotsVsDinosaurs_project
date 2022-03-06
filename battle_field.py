@@ -25,21 +25,24 @@ class BattleField:
     def battle(self): #void
         pass
     def dino_turn(self): #void
-            pass
         #Choose Dino (attacker)
-        #choose attack
+        dino_atker = self.herd.choose_dino_attacker()
         #choose opponet & attack
+        robot_target = self.fleet.robot_to_be_attacked()
+        for dino in self.herd.dinosaurs:
+            if dino_atker.name == dino.name:
+                dino.attack(robot_target)
+            else:
+                continue
 
     def robo_turn(self): #void
-        #Get weapon
         #Choose robot
-        self.fleet.choose_robo_attacker()
+        robot_atker = self.fleet.choose_robo_attacker()
         #choose opponet & attack
         dino_target = self.herd.dinosaur_to_be_attacked()
         for robot in self.fleet.robots:
-            if self.fleet.choose_robo_attacker == robot:
-                self.fleet.robots.robot.attack(dino_target)
-                            
+            if robot_atker.name == robot.name:
+                robot.attack(dino_target)             
             else:
                 continue
     def show_dino_opponent_option(self): #void
