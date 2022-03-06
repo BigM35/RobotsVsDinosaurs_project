@@ -56,7 +56,7 @@ class BattleField:
 
     #instain
 
-#Create Robots
+#Instantiate Robots
 pathfinder = Robot("Pathfinder")
 r2d2 = Robot("R2D2")
 ash = Robot("Ash")
@@ -74,7 +74,7 @@ ash = Robot("Ash")
 
 
 #Dinosaurs names
-irritator = Dinosaur("Irritator", 75)
-rexicutioner = Dinosaur("Rexicutioner", 100)
+irritator = Dinosaur("Irritator", 100)
+rexicutioner = Dinosaur("Rexicutioner", 200)
 yoshi_saurus = Dinosaur("Yoshi-saurus", 50)
 
