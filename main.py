@@ -2,5 +2,5 @@ from battleField import BattleField
 
 
 
-start = BattleField()
-start.run_game()
+R_and_D = BattleField()
+R_and_D.display_welcome()
