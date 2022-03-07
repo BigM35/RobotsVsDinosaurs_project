@@ -22,7 +22,7 @@ class BattleField:
 
         
     def display_welcome(self): #void
-        user_input = input("WELCOME TO ROBOTS VS DINOSAURS!\nYOU WILL BE GIVEN THE OPTION TO PLAY AS FLEET OF ROBOT WITH MISSION TO MAKE THE DINOSAURS GO EXTINCT,\nOR AS A HERD DINOSAURS, FIGHTING OFF YOUR EXTINTION AND TERMINATING THE ROBOTS!\nUSE THE NUMBER KEYS [0] ,[1] ,AND [2] TO MAKE YOUR CHOICES.\n\nARE YOU READY TO START THIS EPIC BATTLE? TYPE [YES] OR [NO] TO GET STARTED: \n   ").lower()            
+        user_input = input("WELCOME TO ROBOTS VS DINOSAURS!\nYOU WILL BE GIVEN THE OPTION TO PLAY AS FLEET OF ROBOT WITH MISSION TO MAKE THE DINOSAURS GO EXTINCT,\nOR AS A HERD DINOSAURS, FIGHTING OFF YOUR EXTINTION AND TERMINATING THE ROBOTS! USE THE NUMBER KEYS [0] ,[1] ,AND [2] TO MAKE YOUR CHOICES.\n\nARE YOU READY TO START THIS EPIC BATTLE? TYPE [YES] OR [NO] TO GET STARTED: \n   ").lower()            
         if user_input == "yes":
             self.run_game()
         else:
@@ -41,9 +41,9 @@ class BattleField:
                     self.robo_turn()
                     self.fleet.remove_dead_bot()
                     self.random_dino_turn()
-                    if self.fleet.robots[0].health == 0 and (self.fleet.robots[1].health == 0, self.fleet.robots[2].health == 0):
+                    if (self.fleet.robots[0].health == 0 and (self.fleet.robots[1].health == 0) and self.fleet.robots[2].health == 0):
                         self.display_loser()
-                    elif self.herd.dinosaurs[0].health == 0 and (self.herd.dinosaurs[1].health == 0, self.herd.dinosaurs[2].health == 0):
+                    elif (self.herd.dinosaurs[0].health == 0 and self.herd.dinosaurs[1].health == 0) and self.herd.dinosaurs[2].health == 0:
                         self.display_winner
                 
         if  user_choice == 2:
@@ -53,9 +53,9 @@ class BattleField:
                     self.herd.remove_dead_dino()
                     self.random_robo_turn()
                     self.fleet.remove_dead_bot()
-                    if self.fleet.robots[0].health == 0 and (self.fleet.robots[1].health == 0, self.fleet.robots[2].health == 0):
+                    if self.fleet.robots[0].health == 0 and (self.fleet.robots[1].health == 0 and self.fleet.robots[2].health == 0):
                         self.display_winner()
-                    elif self.herd.dinosaurs[0].health == 0 and (self.herd.dinosaurs[1].health == 0, self.herd.dinosaurs[2].health == 0):
+                    elif self.herd.dinosaurs[0].health == 0 and (self.herd.dinosaurs[1].health == 0 and self.herd.dinosaurs[2].health == 0):
                         self.display_loser()
                          
     def random_dino_turn(self):
@@ -106,8 +106,11 @@ class BattleField:
         print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nCONGRATULATIONS! \nYOU ARE THE WINNER!!!\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
 
     def display_loser(self):  #void
-        print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nGAME OVER! \nYOU LOST!!!\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-
+        user_input = print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nGAME OVER! \nYOU LOST!!!\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nDo you want to Try Again? [Yes/No]: ").lower()
+        if user_input == "yes":
+            self.display_welcome()
+        else:
+            print("-------------------------------------------------------------------------------------Goodbye!-----------------------------------------------------------------------------------")
 #Instantiate Robots
 pathfinder = Robot("Pathfinder")
 r2d2 = Robot("R2D2")
